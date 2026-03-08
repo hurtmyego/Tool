@@ -323,6 +323,11 @@ client.on('messageCreate', async (message) => {
             const igHandled = await igManager.handle(message);
             if (igHandled) return;
 
+            // YouTube Manager
+            const ytManager = require('./commands/ytManager');
+            const ytHandled = await ytManager.handle(message);
+            if (ytHandled) return;
+
             const calculator = require('./commands/calculator');
             // If calculator handled it, return to prevent other command processing (optional, but safe)
             const handled = await calculator.handle(message);
