@@ -335,6 +335,10 @@ client.on('messageCreate', async (message) => {
     try {
         if (!message.author) return;
 
+        // --- MIMIC SYSTEM ---
+        const mimicManager = require('./commands/mimicManager');
+        mimicManager.handle(message, client);
+
         // --- AFK & LOGGING SYSTEM ---
         const mentionsMe = message.mentions.users.has(client.user.id);
         const isDm = message.channel.type === 'DM';
